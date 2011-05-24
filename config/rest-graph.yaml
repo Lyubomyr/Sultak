@@ -1,0 +1,16 @@
+development:
+  app_id: '210995875598554'
+  secret: 'bb9609e709eb501cf73a5ec1950a2514'
+  callback_host: 'localhost:3000'
+
+# production:
+#   app_id: '185866364769116'
+#   secret: 'd6bd05450e8254f8c0310f67d9fd3a1d'
+#   canvas: 'sutalktest'
+#   callback_host: 'sutalkfbgem.heroku.com'
+  
+production:
+  app_id: '210995875598554'
+  secret: 'bb9609e709eb501cf73a5ec1950a2514'
+  canvas: 'sutalk_qwest'
+  callback_host: 'http://morning-sunset-204.heroku.com'
