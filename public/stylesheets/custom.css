@@ -197,6 +197,17 @@ footer nav {
 	color: #000000;	
 }
 
+.newFriends{
+	padding:10px 7px;
+	background-color: #eceff5;
+	font-weight: 700;
+	color: #000000;
+        margin:12px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border: solid 2px #94a3c4;
+}
+
 .instructionsPoint{
 	font-weight:700;
 }

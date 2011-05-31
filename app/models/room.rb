@@ -1,5 +1,12 @@
 class Room < ActiveRecord::Base
 
+    def self.session_ids(session_id)
+    now = Time.now
+    self.where(:created_at => (now - 2.hours)..now).
+         where(["sessionId != ?", session_id]).
+         select("DISTINCT sessionId").all
+  end
+
   # Assign a room to the user.  Assignment is based on whether an OpenTok Session ID is already present in the params (URL parameter), whether a Request ID is in the params.  If a Session ID is in the params, assign that Session ID to the user.  If a Request ID is present in the params, look up the Session ID by using Facebook's API, and then assign that Session ID to the user.  If no Session ID or Request ID are in the params, then create a new room with a new Session ID, and assign that Session ID to the user.  Each room requires both a Session ID and a Token value, both needed to interact with the OpenTok API.   
   # Returns: room = { :sessionId => sessionId, :token => token }
   def self.assign( params, ip, rest_graph )
@@ -93,5 +100,5 @@ class Room < ActiveRecord::Base
   def self.token( sessionId )
     @opentok.generate_token :session_id => sessionId 
   end
-  
+
 end
