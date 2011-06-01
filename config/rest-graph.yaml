@@ -13,4 +13,4 @@ production:
   app_id: '210995875598554'
   secret: 'bb9609e709eb501cf73a5ec1950a2514'
   canvas: 'sutalk_qwest'
-  callback_host: 'http://afternoon-meadow-105.heroku.com'
+  callback_host: 'http://simple-sunset-591.heroku.com'
