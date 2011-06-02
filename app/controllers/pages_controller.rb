@@ -7,4 +7,10 @@ class PagesController < ApplicationController
     @room = Room.assign params, request.remote_ip, rest_graph
     p @room
   end
+
+  def rooms
+    if (request.xhr?)
+      render :json => Room.rooms(params[:session_id]) and return
+    end
+  end
 end

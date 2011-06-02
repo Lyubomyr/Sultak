@@ -1,4 +1,5 @@
 Sutalk::Application.routes.draw do
+  get "pages/rooms"
   get "pages/home"
   root :to => "pages#home"                  # named route: root_path
 
