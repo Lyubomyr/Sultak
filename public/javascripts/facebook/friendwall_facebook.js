@@ -9,25 +9,25 @@ onlineFriendsFql =  "SELECT name, uid, first_name, profile_url, pic_square " +
 							      "(SELECT uid2 FROM friend WHERE uid1=me()" +
 							      "ORDER BY rand()" + ")";
 
-friendsRandomFql =  "SELECT name, uid, first_name, profile_url, pic_square " + 
+friendsRandomFql =  "SELECT name, uid, first_name, profile_url, pic_square " +
 										"FROM user  " +
 										"WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me()" +
 										"ORDER BY rand()" + ")";
 
 // Display the friend photos on the Friend Wall
 function friendPhotos(){
-	var friendPhotos = document.getElementById('friendPhotos');	
+	var friendPhotos = document.getElementById('friendPhotos');
 	var query = FB.Data.query( friendsRandomFql );
 
 	query.wait(function(rows) {
 		displayFriendPanel(rows, 6, friendPhotos);
-	});	
+	});
 }
 
 // Display online friends on the Friend Wall.
 function onlineFriends(){
 	var onlineFriendsPhotos = document.getElementById('onlineFriendsPhotos');
-	
+
 	var query = FB.Data.query( onlineFriendsFql );
 
 	query.wait(function(rows) {
@@ -44,7 +44,7 @@ function displayFriendPanel(friends, max, targetDiv){
 			markup += person( friends[i] );
 	 	}
 	}
-  targetDiv.innerHTML = markup;	
+  targetDiv.innerHTML = markup;
 }
 
 // Photo of a person

@@ -51,17 +51,17 @@ function sessionConnectedHandler(event) {
 	subscribeToStreams(event.streams);
 	show('publishLink');
 	hide('connectLink');
-	
+
 	// var group = event.groups[0];  // Echo suppression
 	// group.enableEchoSuppression();
-	
+
 	// Echo Suppression Documentation
 	// http://staging.tokbox.com/opentok/api/tools/js/tutorials/audio.html
 	// The enableEchoSuppression() method of this Group object is called when you press the Enable echo suppression button. This method enables echo suppression for the group.
-	// 
+	//
 	// Echo suppression is applied to individual streams only. With echo suppression set, only one individual stream (the current participant) will have audio output at one time. Echo suppression does not affect the audio output of multiplexed streams.
 
-	
+
 }
 
 
@@ -71,7 +71,7 @@ function streamCreatedHandler(event) {
 
 
 function streamDestroyedHandler(event) {
-	// This signals that a stream was destroyed. Any Subscribers will automatically be removed. 
+	// This signals that a stream was destroyed. Any Subscribers will automatically be removed.
 	// This default behaviour can be prevented using event.preventDefault()
 }
 
@@ -79,7 +79,7 @@ function sessionDisconnectedHandler(event) {
 	// This signals that the user was disconnected from the Session. Any subscribers and publishers
 	// will automatically be removed. This default behaviour can be prevented using event.preventDefault()
 	publisher = null;
-	
+
 	show('connectLink');
 	hide('publishLink');
 	hide('unpublishLink');
@@ -93,12 +93,12 @@ function connectionCreatedHandler(event) {
 	// This signals new connections have been created.
 }
 
-/* 
-If you un-comment the call to TB.setEventLister(), above, OpenTok 
-calls the exceptionHandler() method when exception events occur. 
+/*
+If you un-comment the call to TB.setEventLister(), above, OpenTok
+calls the exceptionHandler() method when exception events occur.
 You can modify this method to further process exception events.
-If you un-comment the call to TB.setLogLevel(), above, OpenTok 
-automatically displays exception event messages. 
+If you un-comment the call to TB.setLogLevel(), above, OpenTok
+automatically displays exception event messages.
 */
 function exceptionHandler(event) {
 	alert("Exception: " + event.code + "::" + event.message);

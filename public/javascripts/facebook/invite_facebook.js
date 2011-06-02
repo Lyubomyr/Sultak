@@ -16,7 +16,7 @@ function inviteSingle(id){
 
 	FB.ui({	method: 'apprequests',
 					message: message,
-					data: sessionId,        
+					data: sessionId,
 					title: 'Invite Friend To SUtalk Video Chat',
 					to: id
 				},
@@ -29,7 +29,7 @@ function inviteSingle(id){
 
 // Request dialogue for invite to all online friends.
 function onlineFriendsInvite(){
-	var onlineFriendsFql =  "SELECT uid " + 
+	var onlineFriendsFql =  "SELECT uid " +
 								      		"FROM user WHERE online_presence " +
 								      		"IN ('active','idle') AND uid IN " +
 								      		"(SELECT uid2 FROM friend WHERE uid1=me()" + ")";
@@ -39,11 +39,11 @@ function onlineFriendsInvite(){
 	query.wait(function(rows) {
 		var onlineFriendsArray = jsonToArrayOfValues(rows);
 		var message = inviteMessage();
-		
+
 		FB.ui({	method: 'apprequests',
 						message: message,
 						title: 'Select Online Friends To SUtalk Video Chat',
-						data: sessionId,        
+						data: sessionId,
 						filters: [{name: 'Online Friends', user_ids: onlineFriendsArray}, 'all' ]
 					},
 					function(response) {
@@ -57,7 +57,7 @@ function onlineFriendsInvite(){
 // Feed invite, wall post dialogue
 feedInvite = function feedInvite(){
 	var message = inviteMessage();
-	
+
 	FB.ui(
 	   {
 	     method: 'feed',

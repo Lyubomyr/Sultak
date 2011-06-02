@@ -4,61 +4,67 @@
 // Purpose: Javascript used in the SUtalk app.
 
 $(document).ready(function(){
-	
-	
+
+
 	// ================================
-	// SUtalk 
+	// SUtalk
 	// ================================
 	startOpenTok();
-	
-	
+
+
 	// Event Bindings
-	
+
   $(".sutalkLink").click(function(event){
 		$(this).focus();
 		$(this).select();
   });
-	
+
 	// ================================
-	// OpenTok 
-	// ================================
-	
-	
-										// opentok controls
-  $("#connectLink").click(function(event){
-		connect(); 
-		event.preventDefault();
-  });
-  
-  $("#publishLink").click(function(event){
-  		publish(); 
-  		event.preventDefault();
-  });
-  
-  $("#unpublishLink").click(function(event){
-  		unpublish(); 
-  		event.preventDefault();
-  });
-  	
-  $("#connectInstructions").click(function(event){
-  		connect(); 
-  		event.preventDefault();
-  });
-  
-  $("#publishInstructions").click(function(event){
-  		publish(); 
-  		event.preventDefault();
-  });
-	
-	
-	// ================================
-	// Facebook 
+	// OpenTok
 	// ================================
 
-	// Invite 
+
+										// opentok controls
+  $("#connectLink").click(function(event){
+		connect();
+		event.preventDefault();
+  });
+
+  $("#publishLink").click(function(event){
+  		publish();
+  		event.preventDefault();
+  });
+
+  $("#unpublishLink").click(function(event){
+  		unpublish();
+  		event.preventDefault();
+  });
+
+  $("#connectInstructions").click(function(event){
+  		connect();
+  		event.preventDefault();
+  });
+
+  $("#publishInstructions").click(function(event){
+  		publish();
+  		event.preventDefault();
+  });
+
+
+	// ================================
+	// Facebook
+	// ================================
+
+	// Invite
 	$("#invite_link").click(function(event){
 		onlineFriendsInvite();
 		event.preventDefault();
+  });
+
+  // Make new friends
+  $("#newFriendsTitle").click(function(event){
+    makeNewFriends();
+    event.preventDefault();
   });
 
 	// Online Friends
@@ -66,17 +72,17 @@ $(document).ready(function(){
 		onlineFriendsInvite();
 		event.preventDefault();
   });
- 
+
 
 	// Click a friend wall photo and launch the invite request dialogue for a single friend.
 	$('.friendWallPhoto').live('click', function() {
-		inviteSingle($(this).data("facebook-uid"));				
+		inviteSingle($(this).data("facebook-uid"));
 	});
-	
+
 });
 
 
-	
+
 	// ================================
 	// SUtalk - Helper Javascript
 	// ================================
@@ -108,11 +114,11 @@ function initOpenTok(){
 function startFacebook(){
 	onlineFriends();
 	friendPhotos();
-	expandCanvas()		
+	expandCanvas()
 }
 
 function expandCanvas(){
-	FB.Canvas.setSize({ height: 1400 });		
+	FB.Canvas.setSize({ height: 1400 });
 }
 
 
